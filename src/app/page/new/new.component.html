@@ -1,0 +1,22 @@
+<div style="display: flex; flex-direction: column; height: 400px; width: 500px; margin: 20px;">
+    <p>เพิ่มสถานที่ท่องเที่ยวใหม่</p>
+    
+    <label>ชื่อสถานที่</label>
+    <input type="text" name="name" id="name" #name />
+    
+    <label>รายละเอียดสถานที่</label>
+    <textarea name="detail" cols="30" rows="10" id="detail" #detail></textarea>
+    
+    <label>Url รูปภาพสถานที่</label>
+    <input type="text" name="url" id="url" #url /> <!-- Add #url here -->
+    
+    <label>เลือกประเทศ</label>
+    <select name="country" #country>
+        <option *ngFor="let country of countries" value="{{country.idx}}">
+          {{country.name}}
+        </option>
+    </select>
+      
+    <button (click)="addNew(name.value, detail.value, url.value, +country.value)">Add</button>
+    <button (click)="close()">Close</button>
+</div>
